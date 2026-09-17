@@ -34,9 +34,18 @@ const studySpots = [
 
 export default function App() {
   const [search, setSearch] = useState('');
-  const filteredSpots = studySpots.filter((spot) =>
-  spot.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const [filter, setFilter] = useState('all');
+  const filteredSpots = studySpots.filter((spot) => {
+    const matchesSearch = spot.name.toLowerCase().includes(search.toLowerCase());
+
+        const matchesFilter =
+          filter === 'all' ||
+          (filter === 'quiet' && spot.quiet) ||
+          (filter === 'outlets' && spot.outlets) ||
+          (filter === 'wifi' && spot.wifi);
+
+        return matchesSearch && matchesFilter;
+  });
 
   const [favorites, setFavorites] = useState([]);
   const toggleFavorite = (id) => {
@@ -57,6 +66,47 @@ export default function App() {
         value={search}
         onChangeText={setSearch}
       />
+
+      <View style={styles.filtersContainer}>
+        <Pressable
+        style={[
+          styles.filterButton,
+          filter === 'all' && styles.activeFilter,
+        ]}
+        onPress={() => setFilter('all')}
+        >
+          <Text>All</Text>
+        </Pressable>
+
+        <Pressable
+        style={[
+          styles.filterButton,
+          filter === 'quiet' && styles.activeFilter,
+        ]}
+        onPress={() => setFilter('quiet')}
+        >
+          <Text>Quiet</Text>
+        </Pressable>
+
+        <Pressable
+        style={[
+          styles.filterButton,
+          filter === 'wifi' && styles.activeFilter,
+        ]}
+        onPress={() => setFilter('wifi')}
+        >
+          <Text>Wifi</Text>
+        </Pressable>
+
+        <Pressable
+        style={[
+          styles.filterButton,
+          filter === 'outlets' && styles.activeFilter,
+        ]}
+        onPress={() => setFilter('outlets')}>
+          <Text>Outlets</Text>
+        </Pressable>
+      </View>
       
 
       <FlatList data={filteredSpots} 
@@ -152,5 +202,24 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginRight: 6,
     marginBottom: 6,
+  },
+
+  filtersContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginBottom: 15,
+  },
+
+  filterButton: {
+    backgroundColor: 'white',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+    marginRight: 8,
+  },
+
+  activeFilter: {
+    borderWidth: 2,
+    borderColor: '#000000',
   },
 });
