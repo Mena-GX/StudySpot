@@ -79,9 +79,18 @@ export default function App() {
 
           <Text> {item.rating}</Text>
 
-          <Text>
-            {item.quiet ? 'Quiet' : 'Social'}
-          </Text>
+          <View style={styles.amenities}>
+            {item.quiet && (
+              <Text style={styles.amentity}>Quiet</Text>
+              )}
+            {item.outlets && (
+              <Text style={styles.amentity}>Outlets</Text>
+              )}
+            {item.wifi && (
+              <Text style={styles.amentity}>Wifi </Text>
+              )}
+          </View>
+
         </View>
         )}
       />
@@ -92,13 +101,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    //alignItems: 'center',
+    paddingTop: 60,
+    paddingHorizontal: 20,
+    // justifyContent: 'center',
   },
 
   title: {
     fontSize: 32,
     fontWeight: 'bold',
+    marginBottom: 20,
   },
 
   card: {
@@ -106,6 +118,7 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 15,
     marginBottom: 15,
+    width: '100%',
   },
 
   cardTitle: {
@@ -125,5 +138,19 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 15,
     fontSize: 16,
+  },
+
+  amenities: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 10,
+  },
+  
+  amentity: {
+    backgroundColor: '#EEEEEE',
+    padding: 6,
+    borderRadius: 8,
+    marginRight: 6,
+    marginBottom: 6,
   },
 });
