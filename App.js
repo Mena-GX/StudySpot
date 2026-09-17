@@ -2,10 +2,6 @@ import { StyleSheet, Text, View, FlatList, TextInput, Pressable,} from 'react-na
 import { useState } from 'react';
 
 
-
-
-
-
 const studySpots = [
   {
     id: '1',
@@ -67,6 +63,14 @@ export default function App() {
       keyExtractor={(item) => item.id}
       renderItem={({item}) => (
         <View style={styles.card}>
+          <Pressable
+            onPress={() => toggleFavorite(item.id)}
+          >
+            <Text style={styles.favorite}>
+              {favorites.includes(item.id) ? '★' : '☆'}
+            </Text>
+          </Pressable>
+
           <Text style={styles.cardTitle}>{item.name}</Text>
 
           <Text style={styles.location}>
@@ -79,8 +83,8 @@ export default function App() {
             {item.quiet ? 'Quiet' : 'Social'}
           </Text>
         </View>
-      )}
-    />
+        )}
+      />
     </View>
   );
 }
