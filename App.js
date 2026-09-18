@@ -33,24 +33,45 @@ const studySpots = [
 ];
 
 export default function App() {
+  //starts with empty so all study spots are shown
   const [search, setSearch] = useState('');
+
+  //Starts with 'all' filter selected so all study spots are shown
   const [filter, setFilter] = useState('all');
+
+
+  //makes list of filtered spots that match what is being searched/filtered
   const filteredSpots = studySpots.filter((spot) => {
+    //boolean to check if what is being searched is included in the spot we are
+    //currently looking at
     const matchesSearch = spot.name.toLowerCase().includes(search.toLowerCase());
 
-        const matchesFilter =
-          filter === 'all' ||
-          (filter === 'quiet' && spot.quiet) ||
-          (filter === 'outlets' && spot.outlets) ||
-          (filter === 'wifi' && spot.wifi);
+    //boolean to check if the spot we are currently looking at includes any of
+    //the filters
+    const matchesFilter =
+      filter === 'all' ||
+      (filter === 'quiet' && spot.quiet) ||
+      (filter === 'outlets' && spot.outlets) ||
+      (filter === 'wifi' && spot.wifi);
 
-        return matchesSearch && matchesFilter;
+    //if both yes, then return true -> spots get added to the list
+    return matchesSearch && matchesFilter;
   });
 
+  //starts with an empty array as there would be no favorites at the beginning
   const [favorites, setFavorites] = useState([]);
+
+  //function to check whether an item is a favorite or not
+  //passing an id (the id of the place)
   const toggleFavorite = (id) => {
+    //if favorites already includes the id, .filter() creates a new array
+    //where the new array does not include the id
+    //then re-render
     if(favorites.includes(id)) {
       setFavorites(favorites.filter((favoriteId) => favoriteId !== id));
+    //if favorites does not include id, create a new array with all
+    //the items in favorites PLUS id
+    //re render
     } else {
       setFavorites([...favorites, id]);
     }
