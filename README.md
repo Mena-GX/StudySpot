@@ -97,96 +97,68 @@ StudySpot/
 ├── package-lock.json
 ├── .gitignore
 └── README.md
+```
 
-⚙️ Getting Started
-Prerequisites
+## ⚙️ Getting Started
+
+### Prerequisites
 
 Before running the project, make sure you have:
 
-Node.js installed
-npm installed
-Expo available through the project
-A code editor such as VS Code
-Expo Go on a physical mobile device, or an Android/iOS emulator
-1. Clone the repository
-git clone https://github.com/Mena-GX/StudySpot.git
-2. Navigate into the project
-cd StudySpot
-3. Install dependencies
-npm install
-4. Start the Expo development server
-npx expo start
-5. Open the application
+- [Node.js](https://nodejs.org/) installed
+- npm installed
+- Expo available through the project
+- A code editor such as VS Code
+- Expo Go on a physical mobile device, or an Android/iOS emulator
+
+### 1. Clone the Repository
+
+Clone the StudySpot repository to your local machine:
+
+bash
+
+`git clone https://github.com/Mena-GX/StudySpot.git`
+
+### 2. navigate into the project
+
+`cd StudySpot`
+
+### 3. Install Dependencies
+
+Install the project's required dependencies:
+
+`npm install`
+
+### 4. Start the Expo Development Server
+
+Start the Expo development server with:
+
+`npx expo start`
+
+### 5. Open the Application
 
 After starting Expo, you can open the application using:
 
-Expo Go on a physical device
+Expo Go on a physical mobile device
 Android Emulator
 iOS Simulator
 
 When using Expo Go, make sure your mobile device and computer are connected to the same Wi-Fi network.
 
-🖥️ Development
-
-The application is currently being developed incrementally.
-
-The primary application logic is located in:
-
-App.js
-
-Changes made to the application are reflected through Expo's development environment while the app is running.
-
-🔮 Future Improvements
-
-StudySpot is an ongoing project. Planned improvements include:
-
-Navigation
-Add multiple screens
-Create a dedicated study spot details screen
-Add a favorites screen
-Add an "Add Study Spot" screen
-Study Spot Details
-Add detailed descriptions
-Add photos
-Add additional amenities
-Add study recommendations
-User-Created Study Spots
-Allow users to add their own study locations
-Add form validation
-Allow users to edit and delete their study spots
-Data Persistence
-Save favorite study spots between app sessions
-Store user-created study locations locally
-UI/UX Improvements
-Improve visual design
-Add custom icons
-Add animations
-Improve accessibility
-Add dark mode
-Future Backend
-
-A future version could introduce a backend and database to allow study spots and user data to be shared across devices.
-
-🎯 Learning Goals
+# 🎯 Learning Goals
 
 The primary goal of StudySpot is to strengthen my understanding of mobile application development and React Native fundamentals through hands-on development.
 
 Through this project, I am practicing how to:
 
-Build mobile interfaces with React Native
-Manage application state with React Hooks
-Handle user interactions
-Work with arrays and dynamic data
-Build reusable UI components
-Implement search and filtering functionality
-Organize a growing React Native application
-Develop an application incrementally from a basic prototype into a more complete product
-👩‍💻 Author
+- Build mobile interfaces with React Native
+- Manage application state with React Hooks
+- Handle user interactions
+- Work with arrays and dynamic data
+- Build reusable UI components
+- Implement search and filtering functionality
+- Organize a growing React Native application
+- Develop an application incrementally from a basic prototype into a more complete product
 
-Ximena
-
-Computer Science student interested in front-end development, UI/UX, and building engaging user-focused applications.
-
-📄 License
-
+# 📄 License
 This project is licensed under the MIT License.
